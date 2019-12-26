@@ -3,16 +3,24 @@
   "version": "1.0.0",
   "description": "feedBack collection application",
   "main": "index.js",
-  "engines" : {
-		"node" : "8.1.1",
-		"npm" : "5.0.3"
+  "engines": {
+    "node": "8.1.1",
+    "npm": "5.0.3"
   },
   "scripts": {
-    "start" : "node index.js"
+    "start": "node index.js",
+    "dev": "nodemon index.js"
   },
   "author": "Rahul Singh",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.1"
+    "cookie-session": "^1.3.3",
+    "express": "^4.17.1",
+    "mongoose": "^5.8.3",
+    "passport": "^0.4.1",
+    "passport-google-oauth20": "^2.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.2"
   }
 }
