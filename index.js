@@ -1,10 +1,13 @@
 const express = require('express');
-const PORT = process.env.PORT || 5000;
 const mongoose = require('mongoose');
 const cookieSession = require('cookie-session');
 const passport = require('passport');
 const bodyParser = require('body-parser');
+
 const keys = require('./config/keys.js');
+
+const PORT = process.env.PORT || 5000;
+
 require('./services/mongoDBConnect.js');
 require('./models/users.js');
 require('./services/passport.js');

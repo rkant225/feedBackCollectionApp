@@ -13,7 +13,10 @@ class Header extends React.Component{
             default:
                 return [
                     <li key="1">{this.props.auth && <Payments/>}</li>,
-                    <li key="2"style={{margin : "0 10px"}}>Credits : {this.props.auth && this.props.auth.credits}</li>,
+                    <li key="2"style={{margin : "0 10px"}}>
+                        <span style={{margin : "0 10px"}}>{this.props.auth && this.props.auth.displayName}</span>
+                        Credits : {this.props.auth && this.props.auth.credits}
+                    </li>,
                     <li key="3"><a href="/api/logout">{"Logout"}</a></li>
                        ]
         }
