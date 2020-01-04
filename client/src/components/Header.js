@@ -42,7 +42,8 @@ class Header extends React.Component{
 
 function mapStateToProps(state){
     return({
-        auth : state.auth
+        auth : state.auth.userData,
+        isLoading : state.auth.isLoading
     });
 }
 

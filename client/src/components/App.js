@@ -4,9 +4,9 @@ import {connect} from 'react-redux';
 import Header from './Header';
 import * as actions from '../actions';
 import Landing from './Landing.js';
-
-const Dashboard = () => <h2>Dashboard</h2>
-const SurveyNew = () => <h2>SurveyNew</h2>
+import LoadingComponent from './LoadingComponent.js'
+import Dashboard from './Dashboard.js'
+import SurveyNew from './surveys/SurveyNew.js'
 
 
 class App extends React.Component {
@@ -21,9 +21,16 @@ class App extends React.Component {
           <BrowserRouter>
             <div>
                 <Header />
+                {this.props.isLoading ? 
+                
+                <LoadingComponent/> : 
+                
+                <div>
                 <Route path="/" exact component={this.props.auth == null ? null : this.props.auth ? Dashboard : Landing }/>
                 <Route path="/surveys" exact component={Dashboard}/>
-                <Route path="/survey/new" exact component={SurveyNew}/>
+                <Route path="/surveys/new" exact component={SurveyNew}/>
+                </div>}
+                
             </div>
           </BrowserRouter>
         </div>
@@ -33,7 +40,8 @@ class App extends React.Component {
 
 function mapStateToProps(state){
     return({
-        auth : state.auth
+        auth : state.auth.userData,
+        isLoading : state.auth.isLoading
     });
 }
 

@@ -7,6 +7,11 @@ import App from './components/App.js'
 import reducers from './reducers';
 import reduxThunk from 'redux-thunk';
 
+// Email testing
+import axios from 'axios';
+window.axios = axios;
+// Email testing
+
 const store = createStore(reducers, {}, applyMiddleware(reduxThunk));
 
 ReactDOM.render(

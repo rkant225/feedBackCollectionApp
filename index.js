@@ -8,8 +8,10 @@ const keys = require('./config/keys.js');
 
 const PORT = process.env.PORT || 5000;
 
+// execute all the initialization scripts
 require('./services/mongoDBConnect.js');
 require('./models/users.js');
+require('./models/survey.js');
 require('./services/passport.js');
 
 
@@ -28,6 +30,7 @@ app.use(passport.session());
 //Routing logic for our server
 require('./routes/authRoutes.js')(app);
 require('./routes/billingRoutes.js')(app);
+require('./routes/surveyRoutes.js')(app);
 
 if(process.env.NODE_ENV === 'production'){
     app.use(express.static('client/build'));
