@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {FETCH_USER,START_SERVICE_CALL} from './types'
+import {FETCH_USER,START_SERVICE_CALL, FETCH_SURVEYS, START_FETCH_SURVEYS} from './types'
 
 //export const fetchUser = () => {
 //    return function(dispatch){
@@ -28,3 +28,9 @@ export const submitSurvey = (surveyData) => async (dispatch) =>{
     //dispatch({type : SUBMIT_SURVEY, payload : {}})
 }
 
+
+export const fetchSurveys = () => async (dispatch) =>{    
+    dispatch({type : START_FETCH_SURVEYS})
+    const res = await axios.get('/api/surveys');    
+    dispatch({type : FETCH_SURVEYS, payload : res.data });
+}
