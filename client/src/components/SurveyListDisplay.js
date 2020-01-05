@@ -22,9 +22,7 @@ class SurveyListDisplay extends React.Component {
                     <div className="card-content white-text">
                       <span className="card-title">{survey.title}</span>
                       <p>{survey.body}</p>
-                      <p className="right">Sent on : {new Date(survey.dateSent).toLocaleDateString()}</p>
-                      <div><span><b>Positive response : </b></span> </div>
-                      <div><span><b>Negative response : </b></span> {survey.no}</div>
+                      <p className="right">Sent on : {new Date(survey.dateSent).toLocaleDateString()}</p>                      
                     </div>
                     <div className="card-action">
                       <a  href="#">YES : {survey.yes}</a>
@@ -45,7 +43,6 @@ class SurveyListDisplay extends React.Component {
 }
 
 const mapStateToProps = (state) =>{
-    console.log(state);
     return{
         surveys : state.surveys.surveys,
         isLoading : state.surveys.isLoading
